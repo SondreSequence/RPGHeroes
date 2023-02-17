@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33213.308
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{91CAE43B-B37C-4F78-A63D-99A0051D4EDB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPG_Heroes_Tests", "RPG_Heroes_Tests\RPG_Heroes_Tests.csproj", "{08BE1D95-B2FA-47C3-B7F7-0B7DBEEB1AAA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91CAE43B-B37C-4F78-A63D-99A0051D4EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91CAE43B-B37C-4F78-A63D-99A0051D4EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91CAE43B-B37C-4F78-A63D-99A0051D4EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91CAE43B-B37C-4F78-A63D-99A0051D4EDB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08BE1D95-B2FA-47C3-B7F7-0B7DBEEB1AAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08BE1D95-B2FA-47C3-B7F7-0B7DBEEB1AAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08BE1D95-B2FA-47C3-B7F7-0B7DBEEB1AAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08BE1D95-B2FA-47C3-B7F7-0B7DBEEB1AAA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EBFB80B4-224F-4910-BC9F-F79F9C803C11}
+	EndGlobalSection
+EndGlobal
