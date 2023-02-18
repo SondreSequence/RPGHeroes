@@ -34,11 +34,8 @@ namespace ConsoleApp1.RPG_Heroes
 
         public HeroAttributes CombineHeroInstances(HeroAttributes heroatt1, HeroAttributes heroatt2)
         {
-
             HeroAttributes heroatt3 = new HeroAttributes(heroatt1.Strength + heroatt2.Strength, heroatt1.Dexterity + heroatt2.Dexterity, heroatt1.Intelligence + heroatt2.Intelligence);
-
             return heroatt3;
-
         }
 
         public void IncreaseStats(double increasedStrength, double increasedDexterity, double increasedIntelligence)
@@ -46,7 +43,6 @@ namespace ConsoleApp1.RPG_Heroes
             Strength += increasedStrength;
             Dexterity += increasedDexterity;
             Intelligence += increasedIntelligence;
-
         }
 
     }

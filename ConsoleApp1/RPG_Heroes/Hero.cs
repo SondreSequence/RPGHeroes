@@ -14,8 +14,11 @@ namespace ConsoleApp1.RPG_Heroes
         public List<Weapon.WeaponTypes> validWeaponTypes = new List<Weapon.WeaponTypes>();
         public List<Armor.ArmorTypes> validArmorTypes = new List<Armor.ArmorTypes>();
 
-        /*I could put these in each hero class, but we should do as little as possible to make a new hero class so I put them here
-         * to then populate them in each hero class ergo saving having to make a new heromultiplier var in each hero class for example.*/
+        /*I could put these in each subclass, but we should do as little as possible to make a new subclass so I put them here
+          to then populate them in each subclass ergo saving having to make a new heromultiplier var in each hero class for example.
+        
+        I also don't have to make a switch case on hero types in any method this way.
+        */
         protected int[] heroMultiplier = new int[10];
         protected int DamagingAttributePos;
 
@@ -28,6 +31,7 @@ namespace ConsoleApp1.RPG_Heroes
             equipment.Add(Item.Slot.Body, null);
         }
 
+        //I make this return a string purley for testing purposes atm.
         public virtual string Display()
         {
             StringBuilder output = new StringBuilder();
@@ -56,7 +60,7 @@ namespace ConsoleApp1.RPG_Heroes
             return output.ToString();
         }
 
-        /*I use a the Values Array in my HeroAttributes so I can get the realtime data from TotalAttributes after the hero equips
+        /*I use a the Values Array in HeroAttributes so I can get the realtime data from TotalAttributes after the hero equips
          an item.
 
         Since Strength, Dexterity and Intelligence are always in positions 0,1 and 2 
@@ -78,8 +82,8 @@ namespace ConsoleApp1.RPG_Heroes
         }
 
         /*I do not need to override or overload this method due to this not needing to be changed in any of the hero classes
-        Only relevant in LevelUp would probably be a message,
-        but then we could make a LevelUpMessage var which could then be populated in each class */
+        The only relevant thing I can see to be changed in LevelUp would probably be a message,
+        but then we could make a LevelUpMessage var which could then be populated in each class*/
         public void LevelUp()
         {
             Level += 1;
@@ -110,6 +114,8 @@ namespace ConsoleApp1.RPG_Heroes
                 }
             }
 
+            /*I just remove the item before it equips so that reequipping goes smoothly
+             this also works from at creation because we fill equipment with null values*/
             equipment.Remove(item.SlotType);
             equipment.Add(item.SlotType, item);
         }
@@ -125,7 +131,6 @@ namespace ConsoleApp1.RPG_Heroes
                 if (item is Armor)
                 {
                     Armor armor = (Armor)item;
-                    //I can do .Strenth here for example, but I want to give my Values array some love
                     strength += armor.ArmorAttributes.Strength;
                     dexterity += armor.ArmorAttributes.Dexterity;
                     intelligence += armor.ArmorAttributes.Intelligence;

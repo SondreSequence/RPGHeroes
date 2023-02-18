@@ -19,7 +19,7 @@ namespace RPG_Heroes_Tests
         public void HeroStatsWithoutEquipment_CorrectStatsWithoutEquipment()
         {
             // Arrange
-            Hero Zondre = new Mage("Zondre");
+            Hero Zondre = new Mage("Rick Astely");
             HeroAttributes expected = new(1, 1, 8);
             HeroAttributes actual = Zondre.LevelAttributes;
 
@@ -31,7 +31,7 @@ namespace RPG_Heroes_Tests
         public void HeroStatsWithOnePiece_CorrectStatsWithOnePieceOfEquipment()
         {
             // Arrange
-            Hero Zondre = new Mage("Zondre");
+            Hero Zondre = new Mage("Rick Astely");
             Armor ArmorPiece = new Armor("EnchantedArmor", 1, Armor.ArmorTypes.Cloth, Armor.Slot.Body, new HeroAttributes(10, 10, 10));
             HeroAttributes expected = new(11, 11, 18);
             HeroAttributes actual;
@@ -48,7 +48,7 @@ namespace RPG_Heroes_Tests
         public void HeroStatsWithTwoPieces_CorrectStatsWithTwoPiecesOfEquipment()
         {
             // Arrange
-            Hero Zondre = new Mage("Zondre");
+            Hero Zondre = new Mage("Rick Astely");
             Armor ArmorPiece = new Armor("EnchantedArmorBody", 1, Armor.ArmorTypes.Cloth, Armor.Slot.Body, new HeroAttributes(10, 10, 10));
             Armor ArmorPiece1 = new Armor("EnchantedArmorHead", 1, Armor.ArmorTypes.Cloth, Armor.Slot.Head, new HeroAttributes(10, 10, 10));
             HeroAttributes expected = new(21, 21, 28);
@@ -59,7 +59,7 @@ namespace RPG_Heroes_Tests
             Zondre.EquipItem(ArmorPiece1);
             actual = Zondre.TotalAttributes();
 
-            //
+            //Assert
             Assert.Equivalent(expected, actual);
         }
 
@@ -67,7 +67,7 @@ namespace RPG_Heroes_Tests
         public void HeroStatsWithReplacedArmor_CorrectStatsWithReplacedArmorInSameSlot()
         {
             // Arrange
-            Hero Zondre = new Mage("Zondre");
+            Hero Zondre = new Mage("Rick Astely");
             Armor ArmorPiece = new Armor("EnchantedArmorBody", 1, Armor.ArmorTypes.Cloth, Armor.Slot.Body, new HeroAttributes(10, 10, 10));
             Armor ArmorPiece1 = new Armor("EpicEnchantedBody", 1, Armor.ArmorTypes.Cloth, Armor.Slot.Body, new HeroAttributes(14, 14, 14));
             HeroAttributes expected = new(15, 15, 22);
@@ -121,7 +121,7 @@ namespace RPG_Heroes_Tests
             double expected = 2.16;
             double actual;
 
-            //Act
+            // Act
             Zondre.EquipItem(Weapon);
             Zondre.EquipItem(Weapon1);
             actual = Zondre.Damage();
@@ -154,7 +154,15 @@ namespace RPG_Heroes_Tests
         {
             // Arrange
             Hero Zondre = new Mage("Rick Astely");
-            string expected = "\nName " + Zondre.Name + "\r\nLevel " + Zondre.Level + "\n\r\nEquipped Items\r\n\nBase Attributes: \nStrength: " + Zondre.LevelAttributes.Strength + " Dexterity: " + Zondre.LevelAttributes.Dexterity + " Intelligence: " + Zondre.LevelAttributes.Intelligence + "\r\n\nTotal Attributes:\nStrength: " + Zondre.TotalAttributes().Strength + " Dexterity: " + Zondre.LevelAttributes.Dexterity + " Intelligence: " + Zondre.LevelAttributes.Intelligence + "\r\n\nRick Astely's total damage output: " + Zondre.Damage()+"\r\n";
+            string expected = 
+                "\nName " + Zondre.Name 
+                + "\r\nLevel " + Zondre.Level 
+                + "\n\r\nEquipped Items\r\n\n" 
+                + "Base Attributes: \nStrength: " + Zondre.LevelAttributes.Strength + " Dexterity: " + Zondre.LevelAttributes.Dexterity + " Intelligence: " + Zondre.LevelAttributes.Intelligence 
+                + "\r\n\nTotal Attributes:\nStrength: " 
+                + Zondre.TotalAttributes().Strength + " Dexterity: " + Zondre.LevelAttributes.Dexterity + " Intelligence: " + Zondre.LevelAttributes.Intelligence 
+                + "\r\n\nRick Astely's total damage output: " 
+                + Zondre.Damage()+"\r\n";
 
             //Act
             string actual = Zondre.Display();

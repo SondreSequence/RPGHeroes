@@ -58,10 +58,10 @@ namespace RPG_Heroes_Tests.WeaponTests
             // Arrange
             Hero hero = new Warrior("Zondre");
             Weapon Weapon = new Weapon("Axe", 1, 15, Weapon.WeaponTypes.Axe);
+            Weapon expectedWeapon = (Weapon)hero.equipment[Weapon.Slot.Weapon];
 
             // Act
             hero.EquipItem(Weapon);
-            Weapon expectedWeapon = (Weapon)hero.equipment[Weapon.Slot.Weapon];
 
             // Assert
             Assert.Equivalent(Weapon, expectedWeapon);

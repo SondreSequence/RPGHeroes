@@ -16,6 +16,7 @@ namespace ConsoleApp1.RPG_Heroes.Items
         {
             WeaponDamage = weaponDamage;
             WeaponType = weaponType;
+            //I set the slottype here since Weapons slottype will always be Weapon so we don't need it as an input
             SlotType = Slot.Weapon;
         }
     }
