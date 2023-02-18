@@ -10,7 +10,7 @@ namespace ConsoleApp1.RPG_Heroes
         public string Name;
         public int Level = 1;
         public HeroAttributes LevelAttributes = new HeroAttributes(0,0,0);
-        public Dictionary<Item.Slot, Item> equipment = new Dictionary<Item.Slot, Item>();
+        public Dictionary<Item.Slot, Item?> equipment = new Dictionary<Item.Slot, Item?>();
         public List<Weapon.WeaponTypes> validWeaponTypes = new List<Weapon.WeaponTypes>();
         public List<Armor.ArmorTypes> validArmorTypes = new List<Armor.ArmorTypes>();
 
@@ -50,10 +50,8 @@ namespace ConsoleApp1.RPG_Heroes
             }
 
             output.AppendLine($"\nBase Attributes: \nStrength: {LevelAttributes.Strength} Dexterity: {LevelAttributes.Dexterity} Intelligence: {LevelAttributes.Intelligence}");
-
             HeroAttributes totalAttr = TotalAttributes();
             output.AppendLine($"\nTotal Attributes:\nStrength: {totalAttr.Strength} Dexterity: {totalAttr.Dexterity} Intelligence: {totalAttr.Intelligence}");
-
             output.AppendLine($"\n{Name}'s total damage output: {Damage()}");
 
             Console.WriteLine(output);
