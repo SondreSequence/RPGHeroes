@@ -13,22 +13,56 @@ namespace RPG_Heroes_Tests.ArmorTests
 {
     public class ArmorTests
     {
-        [Fact]
-        public void CreateArmorTest_CreatesArmor()
-        {
-            // Arrange
-            Armor actualArmor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
 
-            // Assert
-            Assert.All(new (object actual, object expected)[]
-            {(actualArmor.Name, "EnchantedPlate"),
-             (actualArmor.RequiredLevel, 1),
-             (actualArmor.ArmorAttributes, new HeroAttributes(1, 10, 1)),
-             (actualArmor.ArmorType, Armor.ArmorTypes.Plate),
-             (actualArmor.SlotType, Item.Slot.Body)
-            },
-            tuple => Assert.Equivalent(tuple.expected, tuple.actual));
-        }
+            [Fact]
+            public void CreateArmorTest_CreatesArmorWithGivenName()
+            {
+                // Arrange
+                Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
+
+                // Assert
+                Assert.Equal("EnchantedPlate", armor.Name);
+            }
+
+            [Fact]
+            public void CreateArmorTest_CreatesArmorWithGivenRequiredLevel()
+            {
+                // Arrange
+                Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
+
+                // Assert
+                Assert.Equal(1, armor.RequiredLevel);
+            }
+
+            [Fact]
+            public void CreateArmorTest_CreatesArmorWithGivenAttributes()
+            {
+                // Arrange
+                Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
+
+                // Assert
+                Assert.Equivalent(new HeroAttributes(1, 10, 1), armor.ArmorAttributes);
+            }
+
+            [Fact]
+            public void CreateArmorTest_CreatesArmorWithGivenArmorType()
+            {
+                // Arrange
+                Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
+
+                // Assert
+                Assert.Equal(Armor.ArmorTypes.Plate, armor.ArmorType);
+            }
+
+            [Fact]
+            public void CreateArmorTest_CreatesArmorWithGivenSlotType()
+            {
+                // Arrange
+                Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new(1, 10, 1));
+
+                // Assert
+                Assert.Equal(Item.Slot.Body, armor.SlotType);
+            }
 
         //I'm only testing equip once due to it not being said in the assignment that it should be tested in all subclasses
         [Fact]

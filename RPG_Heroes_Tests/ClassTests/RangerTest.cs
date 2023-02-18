@@ -1,30 +1,43 @@
 ﻿using ConsoleApp1.Hero.Classes;
 using ConsoleApp1.RPG_Heroes;
 using ConsoleApp1.RPG_Heroes.Classes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ConsoleApp1.RPG_Heroes.Items;
 
-namespace RPG_Heroes_Tests.ClassTests
+namespace RPG_Heroes_Tests
 {
+
     public class RangerTest
     {
-        [Fact]
-        public void CreateRangerTest_CreatesRanger()
+        public class RangerTests
         {
-            // Arrange
-            Ranger Zondre = new Ranger("Zondre");
-            int expectedLevel = 1;
-            string expectedName = "Zondre";
+            [Fact]
+            public void CreateRangerTest_CreatesRangerWithLevelOne()
+            {
+                // Arrange
+                int expectedLevel = 1;
 
-            // Assert
-            Assert.All(new (object actual, object expected)[]
-            {(Zondre.Level, expectedLevel),(Zondre.Name, expectedName)},
-            tuple => Assert.Equal(tuple.expected, tuple.actual));
+                //Act
+                Ranger Zondre = new Ranger("Zondre");
+
+                // Assert
+                Assert.Equal(expectedLevel, Zondre.Level);
+            }
+
+            [Fact]
+            public void CreateRangerTest_CreatesRangerWithNameZondre()
+            {
+                // Arrange
+                string expectedName = "Zondre";
+
+                //Act
+                Ranger Zondre = new Ranger("Zondre");
+
+                // Assert
+                Assert.Equal(expectedName, Zondre.Name);
+            }
         }
+
+
 
         [Fact]
         public void LevelUpTest_RangerLevelUp()
@@ -44,7 +57,6 @@ namespace RPG_Heroes_Tests.ClassTests
 
         public void HeroAttributesTest_IncreaseStats()
         {
-
 
             // Arrange
             Ranger Zondre = new Ranger("Zondre");
@@ -69,5 +81,6 @@ namespace RPG_Heroes_Tests.ClassTests
             // Assert
             Assert.Equivalent(expected, actual);
         }
+
     }
 }

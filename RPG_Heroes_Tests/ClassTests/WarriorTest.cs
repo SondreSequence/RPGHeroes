@@ -1,29 +1,42 @@
 ﻿using ConsoleApp1.Hero.Classes;
 using ConsoleApp1.RPG_Heroes;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ConsoleApp1.RPG_Heroes.Items;
 
-namespace RPG_Heroes_Tests.ClassTests
+namespace RPG_Heroes_Tests
 {
+
     public class WarriorTest
     {
-        [Fact]
-        public void CreateWarriorTest_CreatesWarrior()
+        public class WarriorTests
         {
-            // Arrange
-            Warrior Zondre = new Warrior("Zondre");
-            int expectedLevel = 1;
-            string expectedName = "Zondre";
+            [Fact]
+            public void CreateWarriorTest_CreatesWarriorWithLevelOne()
+            {
+                // Arrange
+                int expectedLevel = 1;
 
-            // Assert
-            Assert.All(new (object actual, object expected)[]
-            {(Zondre.Level, expectedLevel),(Zondre.Name, expectedName)},
-            tuple => Assert.Equal(tuple.expected, tuple.actual));
+                //Act
+                Warrior Zondre = new Warrior("Zondre");
+
+                // Assert
+                Assert.Equal(expectedLevel, Zondre.Level);
+            }
+
+            [Fact]
+            public void CreateWarriorTest_CreatesWarriorWithNameZondre()
+            {
+                // Arrange
+                string expectedName = "Zondre";
+
+                //Act
+                Warrior Zondre = new Warrior("Zondre");
+
+                // Assert
+                Assert.Equal(expectedName, Zondre.Name);
+            }
         }
+
+
 
         [Fact]
         public void LevelUpTest_WarriorLevelUp()
@@ -43,7 +56,6 @@ namespace RPG_Heroes_Tests.ClassTests
 
         public void HeroAttributesTest_IncreaseStats()
         {
-
 
             // Arrange
             Warrior Zondre = new Warrior("Zondre");
@@ -67,7 +79,7 @@ namespace RPG_Heroes_Tests.ClassTests
 
             // Assert
             Assert.Equivalent(expected, actual);
-           
         }
+
     }
 }

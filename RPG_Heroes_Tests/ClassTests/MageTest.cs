@@ -7,21 +7,35 @@ namespace RPG_Heroes_Tests
 
     public class MageTest
     {
-        [Fact]
-        public void CreateMageTest_CreatesMage()
+        public class MageTests
         {
-            // Arrange
-            int expectedLevel = 1;
-            string expectedName = "Zondre";
+            [Fact]
+            public void CreateMageTest_CreatesMageWithLevelOne()
+            {
+                // Arrange
+                int expectedLevel = 1;
 
-            //Act
-            Mage Zondre = new Mage("Zondre");
+                //Act
+                Mage Zondre = new Mage("Zondre");
 
-            // Assert
-            Assert.All(new (object actual, object expected)[] 
-            {(Zondre.Level, expectedLevel),(Zondre.Name, expectedName)}, 
-            tuple => Assert.Equal(tuple.expected, tuple.actual));
+                // Assert
+                Assert.Equal(expectedLevel, Zondre.Level);
+            }
+
+            [Fact]
+            public void CreateMageTest_CreatesMageWithNameZondre()
+            {
+                // Arrange
+                string expectedName = "Zondre";
+
+                //Act
+                Mage Zondre = new Mage("Zondre");
+
+                // Assert
+                Assert.Equal(expectedName, Zondre.Name);
+            }
         }
+
 
 
         [Fact]
