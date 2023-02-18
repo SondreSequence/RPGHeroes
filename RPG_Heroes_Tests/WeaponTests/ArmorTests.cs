@@ -71,10 +71,11 @@ namespace RPG_Heroes_Tests.ArmorTests
             // Arrange
             Hero hero = new Warrior("Zondre");
             Armor armor = new Armor("EnchantedPlate", 1, Armor.ArmorTypes.Plate, Armor.Slot.Body, new HeroAttributes(1, 10, 1));
-            Armor expectedArmor = (Armor)hero.equipment[Armor.Slot.Body];
+            Armor expectedArmor;
 
             // Act
             hero.EquipItem(armor);
+            expectedArmor = (Armor)hero.equipment[Armor.Slot.Body];
 
             // Assert
             Assert.Equivalent(armor, expectedArmor);
